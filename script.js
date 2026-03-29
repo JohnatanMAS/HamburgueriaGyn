@@ -193,3 +193,13 @@ if(clearCartBtn){
       }
   });
 }
+
+// Fechar menu ao clicar fora (mobile)
+document.addEventListener("click", (e) => {
+    const isClickInsideMenu = nav.contains(e.target);
+    const isClickOnButton = menuToggle.contains(e.target);
+
+    if (!isClickInsideMenu && !isClickOnButton) {
+        nav.classList.remove("active");
+    }
+});
