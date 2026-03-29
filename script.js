@@ -108,13 +108,13 @@ document.getElementById("checkoutBtn").onclick = function () {
     btn.innerText = "Enviando...";
     btn.disabled = true;
 
-    let mensagem = "🛒 *Novo Pedido*\n\n";
+    let mensagem = " *Novo Pedido*\n\n";
     cart.forEach(item => {
         mensagem += `• ${item.quantidade}x ${item.nome} - R$ ${(item.preco * item.quantidade).toFixed(2)}\n`;
     });
 
     const total = cart.reduce((acc,item)=>acc+item.preco*item.quantidade,0);
-    mensagem += `\n💰 Total: R$ ${total.toFixed(2)}`;
+    mensagem += `\n  Total: R$ ${total.toFixed(2)}`;
 
     setTimeout(()=>{
         window.open(`https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`, "_blank");
