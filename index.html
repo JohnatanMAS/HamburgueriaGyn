@@ -2,27 +2,34 @@
 <html lang="pt-br">
 
 <head>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hamburgueria Gyn</title>
     <link rel="stylesheet" href="styles.css" />
+
 </head>
 
 <body>
-    <!-- Header -->
+    //cabeçalho do site, onde tem o logo, o menu de navegação e o botão do carrinho.
     <header>
         <a href="#" class="logo">🍔 Hamburgueria Gyn</a>
         <button class="menu-toggle" aria-label="Abrir menu">☰</button>
         <nav>
+
             <a href="#inicio">Início</a>
             <a href="#cardapio">Cardápio</a>
             <a href="#sobre">Sobre</a>
             <a href="#contato">Contato</a>
+
         </nav>
-        <a href="#cardapio" class="btn">🛒 Faça seu Pedido</a>
+
+        <button id="openCart" class="btn">🛒 Carrinho (<span id="cartCount">0</span>)
+        </button>
+
     </header>
 
-    <!-- Hero -->
+    //Corpo do site, onde tem a parte inicial, o cardápio, a descrição da hamburgueria e o contato.
     <section id="inicio" class="hero-wrapper">
         <article class="hero">
             <div>
@@ -42,7 +49,7 @@
         </article>
     </section>
 
-    <!-- Cardápio -->
+    //cardapio do site, onde tem os produtos e os preços, além de um botão para adicionar ao carrinho.
     <section id="cardapio" class="cardapio">
         <h2>Nosso Cardápio</h2>
         <p>Confira nossas opções deliciosas de hambúrgueres artesanais, acompanhamentos e bebidas.</p>
@@ -53,7 +60,7 @@
                 <p>Delicioso hambúrguer com queijo, alface, tomate e molho especial.</p>
                 <strong>R$ 25,00</strong>
                 <span class="badge">Mais vendido</span>
-                <a href="https://api.whatsapp.com/send/?phone=5562982436674" class="btn">Pedir</a>
+                <button class="btn">Adicionar</button>
             </li>
             <li>
                 <img src="img/burguer bacon.png" alt="Hamburguer Bacon" />
@@ -61,45 +68,46 @@
                 <p>Hambúrguer suculento com fatias crocantes de bacon e queijo cheddar.</p>
                 <strong>R$ 30,00</strong>
                 <span class="badge">Mais vendido</span>
-                <a href="https://api.whatsapp.com/send/?phone=5562982436674" class="btn">Pedir</a>
+                <button class="btn">Adicionar</button>
             </li>
             <li>
                 <img src="img/burguer vegano.png" alt="Hamburguer Veggie" />
                 <h3>Hamburguer Veggie</h3>
                 <p>Opção vegetariana com hambúrguer de grão-de-bico, alface e tomate.</p>
                 <strong>R$ 23,00</strong>
-                <a href="https://api.whatsapp.com/send/?phone=5562982436674" class="btn">Pedir</a>
+                <button class="btn">Adicionar</button>
             </li>
             <li>
                 <img src="img/chedder.png" alt="cheddar" />
                 <h3>Hamburguer Cheddar</h3>
                 <p>Opção cheddar com 3 hambúrger com queijo cheddar.</p>
                 <strong>R$ 30,00</strong>
-                <a href="https://api.whatsapp.com/send/?phone=5562982436674" class="btn">Pedir</a>
+                <button class="btn">Adicionar</button>
             </li>
             <li>
                 <img src="img/coca.png" alt="coca" />
                 <h3>COCA-COLA 2 LITROS</h3>
                 <p>Refrigerante Coca-cola 2 Litros.</p>
                 <strong>R$ 14,00</strong>
-                <a href="https://api.whatsapp.com/send/?phone=5562982436674" class="btn">Pedir</a>
+                <button class="btn">Adicionar</button>
             </li>
             <li>
                 <img src="img/milkshake.png" alt="milkshake" />
                 <h3>Milk Shake de Chocolate</h3>
                 <p>Soboroso milk Shake de Chocolate 500ML.</p>
                 <strong>R$ 15,00</strong>
-                <a href="https://api.whatsapp.com/send/?phone=5562982436674" class="btn">Pedir</a>
+                <button class="btn">Adicionar</button>
             </li>
         </ul>
     </section>
 
-    <!-- Sobre -->
+    //Parte media do site, onde tem a descrição da hamburgueria e os diferenciais dela.
     <section id="sobre" class="sobre">
         <img src="img/sobre.png" alt="Hamburgueria Gyn" />
         <article>
             <h2>Sobre Nós</h2>
-            <p>Na Hamburgueria Gyn, nossa missão é oferecer hambúrgueres artesanais de alta qualidade, feitos com ingredientes frescos e saborosos.</p>
+            <p>Na Hamburgueria Gyn, nossa missão é oferecer hambúrgueres artesanais de alta qualidade, feitos com
+                ingredientes frescos e saborosos.</p>
             <p>Desde 2020, temos servido a comunidade local com dedicação e paixão pela culinária.</p>
             <ul>
                 <li>🥩 Carne Fresca - 100% bovina selecionada</li>
@@ -111,7 +119,7 @@
         </article>
     </section>
 
-    <!-- CTA -->
+    //contato 
     <section id="cta" class="cta">
         <h2>Deu Fome?</h2>
         <p>Entre em contato conosco!</p>
@@ -121,7 +129,7 @@
         </ul>
     </section>
 
-    <!-- Footer -->
+    //FOOTER / Parte inferior do site  
     <footer id="contato">
         <div class="footer-container">
             <section>
@@ -150,7 +158,27 @@
         </div>
     </footer>
 
-    <!-- Script -->
+    <div id="cartSidebar">
+
+        <div class="cart-header">
+            <h2>Seu Pedido</h2>
+            <button id="closeCart">✕</button>
+        </div>
+
+        <ul id="cartItems"></ul>
+
+        <div class="cart-footer">
+           <button id="clearCart">Limpar Tudo</button>
+           <div style="margin-top:10px;">Total: <span id="cartTotal">R$ 0,00</span></div>
+           <button id="checkoutBtn" class="btn">Finalizar Pedido</button>
+        </div>
+        
+
+    </div>
+
+    <button id="openCartMobile">🛒<span id="cartCountMobile">0</span></button>
+
+    <!-- SCRIPT -->
     <script src="script.js"></script>
 </body>
 
